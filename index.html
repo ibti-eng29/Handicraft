@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venus Handicrafts — Artisan Manufacturer & Exporter Since 1972</title>
+<style>
+  /* =============================================
+     CSS CUSTOM PROPERTIES — COLOR SYSTEM
+  ============================================= */
+  :root {
+    --clr-bg:        #0f0b07;
+    --clr-bg-2:      #1a1208;
+    --clr-bg-3:      #221809;
+    --clr-surface:   #2c1f0b;
+    --clr-surface-2: #3a2a10;
+    --clr-border:    rgba(184,134,66,0.18);
+    --clr-gold:      #c9933a;
+    --clr-gold-lt:   #e8b96a;
+    --clr-gold-pale: #f5dfa8;
+    --clr-cream:     #f2ead8;
+    --clr-ivory:     #faf6ee;
+    --clr-brown:     #6b3f16;
+    --clr-brown-dk:  #3d1f06;
+    --clr-text:      #e8dcc8;
+    --clr-text-muted:#a08060;
+    --clr-text-dim:  #6b5538;
+    --clr-accent:    #d4784a;
+    --clr-accent-lt: #e89a72;
+    --clr-shadow:    rgba(0,0,0,0.6);
+
+    --ff-display: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    --ff-heading: Georgia, 'Times New Roman', serif;
+    --ff-body:    'Garamond', 'EB Garamond', Georgia, serif;
+    --ff-ui:      'Trebuchet MS', 'Gill Sans', sans-serif;
+
+    --radius-sm:  4px;
+    --radius:     8px;
+    --radius-lg:  16px;
+    --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --nav-h:      72px;
+  }
+
+  /* =============================================
+     RESET & BASE
+  ============================================= */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: var(--ff-body);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button, input, textarea, select { font: inherit; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--clr-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--clr-gold); border-radius: 3px; }
+
+  /* =============================================
+     UTILITY CLASSES
+  ============================================= */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  .section-tag {
+    display: inline-block;
+    font-family: var(--ff-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    border: 1px solid var(--clr-border);
+    padding: 0.3em 1em;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--clr-ivory);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--clr-gold-lt);
+  }
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--clr-text-muted);
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--clr-gold), transparent);
+    max-width: 80px;
+  }
+  .ornament span {
+    color: var(--clr-gold);
+    font-size: 1.2rem;
+  }
+  .gold-line {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--clr-gold), var(--clr-accent));
+    margin-bottom: 1.5rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.85em 2.2em;
+    border-radius: var(--radius-sm);
+    font-family: var(--ff-ui);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+  }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    color: var(--clr-bg);
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(201,147,58,0.3);
+  }
+  .btn-gold:hover {
+    background: linear-gradient(135deg, var(--clr-gold-lt), var(--clr-gold));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,147,58,0.45);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--clr-gold);
+    border: 1px solid var(--clr-gold);
+  }
+  .btn-outline:hover {
+    background: var(--clr-gold);
+    color: var(--clr-bg);
+  }
+
+  /* =============================================
+     TEXTURE OVERLAY
+  ============================================= */
+  .texture-overlay {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='none'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='rgba(255,255,255,0.015)'/%3E%3C/svg%3E");
+    opacity: 0.8;
+  }
+
+  /* =============================================
+     NAVBAR
+  ============================================= */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 1000;
+    transition: background var(--transition), box-shadow var(--transition), height var(--transition);
+    background: transparent;
+  }
+  #navbar.scrolled {
+    background: rgba(15,11,7,0.97);
+    box-shadow: 0 2px 40px rgba(0,0,0,0.7);
+    height: 62px;
+    border-bottom: 1px solid var(--clr-border);
+  }
+  .nav-inner {
+    height: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 1.5rem;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.7rem;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    color: var(--clr-bg);
+    box-shadow: 0 0 16px rgba(201,147,58,0.4);
+    flex-shrink: 0;
+  }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-main {
+    font-family: var(--ff-display);
+    font-size: 1.2rem;
+    color: var(--clr-ivory);
+    letter-spacing: 0.05em;
+  }
+  .nav-logo-sub {
+    font-family: var(--ff-ui);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 0.25rem;
+  }
+  .nav-links a {
+    font-family: var(--ff-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-text-muted);
+    padding: 0.5em 0.9em;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: 2px; left: 50%; right: 50%;
+    height: 1px;
+    background: var(--clr-gold);
+    transition: var(--transition);
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--clr-gold-lt);
+  }
+  .nav-links a:hover::after, .nav-links a.active::after {
+    left: 0.9em; right: 0.9em;
+  }
+  .nav-cta {
+    font-family: var(--ff-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.55em 1.4em;
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    color: var(--clr-bg) !important;
+    border-radius: 2px;
+    font-weight: 700;
+    transition: var(--transition) !important;
+  }
+  .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+    background: none; border: none;
+  }
+  .hamburger span {
+    width: 24px; height: 2px;
+    background: var(--clr-gold);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* Mobile nav */
+  .mobile-nav {
+    display: none;
+    position: fixed; top: 62px; left: 0; right: 0;
+    background: rgba(15,11,7,0.98);
+    border-bottom: 1px solid var(--clr-border);
+    padding: 1rem 1.5rem;
+    z-index: 999;
+    flex-direction: column; gap: 0.25rem;
+    backdrop-filter: blur(10px);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--ff-ui);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-text-muted);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--clr-border);
+    transition: color 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--clr-gold); }
+
+  /* =============================================
+     HERO SECTION
+  ============================================= */
+  #home {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    padding-top: var(--nav-h);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(93,55,20,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,147,58,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(212,120,74,0.12) 0%, transparent 50%),
+      linear-gradient(165deg, #1a1208 0%, #0f0b07 50%, #1a100a 100%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(45deg, var(--clr-gold) 0, var(--clr-gold) 1px, transparent 0, transparent 50%),
+      repeating-linear-gradient(-45deg, var(--clr-gold) 0, var(--clr-gold) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    text-align: center;
+    max-width: 860px;
+    padding: 2rem 1.5rem;
+  }
+  .hero-since {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-family: var(--ff-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 1.5rem;
+    padding: 0.5em 1.5em;
+    border: 1px solid rgba(201,147,58,0.3);
+    border-radius: 2px;
+    background: rgba(201,147,58,0.05);
+  }
+  .hero-since::before, .hero-since::after {
+    content: '✦'; font-size: 0.6rem;
+  }
+  .hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    color: var(--clr-ivory);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+  }
+  .hero-title .accent-word {
+    background: linear-gradient(135deg, var(--clr-gold-lt), var(--clr-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+  .hero-desc {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--clr-text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-cta-group {
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .hero-stats {
+    position: relative; z-index: 1;
+    display: flex; justify-content: center; gap: 0;
+    margin-top: 5rem;
+    border-top: 1px solid var(--clr-border);
+    border-left: 1px solid var(--clr-border);
+    max-width: 700px;
+    margin-left: auto; margin-right: auto;
+  }
+  .hero-stat {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-right: 1px solid var(--clr-border);
+    border-bottom: 1px solid var(--clr-border);
+  }
+  .hero-stat-num {
+    font-family: var(--ff-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--clr-gold-lt);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .hero-stat-lbl {
+    font-family: var(--ff-ui);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clr-text-dim);
+  }
+  .scroll-indicator {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: var(--clr-text-dim);
+    font-family: var(--ff-ui);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .scroll-indicator .arrow {
+    width: 20px; height: 20px;
+    border-right: 1px solid var(--clr-gold);
+    border-bottom: 1px solid var(--clr-gold);
+    transform: rotate(45deg);
+    opacity: 0.6;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* =============================================
+     ABOUT SECTION
+  ============================================= */
+  #about {
+    padding: 8rem 0;
+    background: var(--clr-bg-2);
+    position: relative;
+    overflow: hidden;
+  }
+  #about::before {
+    content: '1972';
+    position: absolute; right: -1rem; top: 50%; transform: translateY(-50%);
+    font-family: var(--ff-display);
+    font-size: 18rem;
+    color: rgba(201,147,58,0.03);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-main {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, var(--clr-surface) 0%, var(--clr-brown-dk) 100%);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+  .about-img-main::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(201,147,58,0.25) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(212,120,74,0.15) 0%, transparent 50%);
+  }
+  .about-img-main::after {
+    content: '⚱';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 8rem;
+    opacity: 0.15;
+    color: var(--clr-gold);
+  }
+  .about-img-badge {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-brown));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    padding: 1rem;
+    border: 3px solid var(--clr-bg-2);
+  }
+  .about-img-badge .badge-num {
+    font-family: var(--ff-display);
+    font-size: 2rem;
+    color: var(--clr-bg);
+    line-height: 1;
+  }
+  .about-img-badge .badge-txt {
+    font-family: var(--ff-ui);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-bg);
+    opacity: 0.8;
+  }
+  .about-floater {
+    position: absolute; top: 2rem; left: -2rem;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    box-shadow: 0 8px 30px var(--clr-shadow);
+  }
+  .about-floater-icon {
+    font-size: 1.5rem;
+  }
+  .about-floater-text { line-height: 1.2; }
+  .about-floater-text strong {
+    display: block; font-family: var(--ff-ui); font-size: 0.9rem; color: var(--clr-ivory);
+  }
+  .about-floater-text span {
+    font-size: 0.75rem; color: var(--clr-text-muted);
+  }
+  .about-content {}
+  .about-pillars {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 2rem;
+  }
+  .about-pillar {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: var(--transition);
+  }
+  .about-pillar:hover {
+    border-color: var(--clr-gold);
+    transform: translateY(-2px);
+  }
+  .about-pillar-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .about-pillar-title {
+    font-family: var(--ff-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 0.4rem;
+  }
+  .about-pillar-text {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+  }
+  .cert-strip {
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--clr-border);
+  }
+  .cert-badge {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: 3px;
+    padding: 0.4em 0.9em;
+    font-family: var(--ff-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--clr-gold);
+  }
+  .cert-badge span { font-size: 1rem; }
+
+  /* =============================================
+     PRODUCTS SECTION
+  ============================================= */
+  #products {
+    padding: 8rem 0;
+    background: var(--clr-bg);
+  }
+  .products-header { text-align: center; }
+  .products-header .section-subtitle { margin: 0 auto 3rem; }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+    cursor: default;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--clr-gold), var(--clr-accent));
+    transform: scaleX(0); transform-origin: left;
+    transition: var(--transition);
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,147,58,0.4);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-thumb {
+    height: 160px;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product-thumb .thumb-emoji {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    z-index: 1;
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .thumb-emoji { transform: scale(1.15) rotate(-5deg); }
+  .product-thumb::before {
+    content: '';
+    position: absolute; inset: 0;
+  }
+  .product-body { padding: 1.5rem; }
+  .product-cat-label {
+    font-family: var(--ff-ui);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 0.4rem;
+  }
+  .product-name {
+    font-family: var(--ff-heading);
+    font-size: 1.15rem;
+    color: var(--clr-ivory);
+    margin-bottom: 0.5rem;
+  }
+  .product-desc {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    line-height: 1.65;
+  }
+  .product-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 1rem;
+    font-family: var(--ff-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    transition: gap 0.2s;
+  }
+  .product-link:hover { gap: 0.7rem; }
+
+  /* =============================================
+     GALLERY SECTION
+  ============================================= */
+  #gallery {
+    padding: 8rem 0;
+    background: var(--clr-bg-2);
+  }
+  .gallery-header { text-align: center; }
+  .gallery-header .section-subtitle { margin: 0 auto 3rem; }
+  .gallery-filter {
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .gf-btn {
+    font-family: var(--ff-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.45em 1.2em;
+    border: 1px solid var(--clr-border);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--clr-text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .gf-btn:hover, .gf-btn.active {
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    color: var(--clr-bg);
+    border-color: transparent;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 0.75rem;
+  }
+  .gallery-item {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .gallery-item:nth-child(5n+1) { grid-column: span 2; grid-row: span 2; }
+  .gallery-item:nth-child(7n+3) { grid-column: span 2; }
+  .gallery-item:hover { transform: scale(1.02); z-index: 2; box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
+  .gallery-img {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.75rem;
+    transition: var(--transition);
+  }
+  .gallery-item:hover .gallery-img { filter: brightness(0.7); }
+  .gallery-img-icon { font-size: 2.5rem; }
+  .gallery-img-lbl {
+    font-family: var(--ff-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+  }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,11,7,0.9) 0%, transparent 60%);
+    opacity: 0; transition: var(--transition);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.25rem;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay-title {
+    font-family: var(--ff-heading);
+    font-size: 1rem;
+    color: var(--clr-ivory);
+    margin-bottom: 0.2rem;
+  }
+  .gallery-overlay-cat {
+    font-family: var(--ff-ui);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+  }
+
+  /* =============================================
+     SITE MAP SECTION
+  ============================================= */
+  #sitemap {
+    padding: 8rem 0;
+    background: var(--clr-bg-3);
+  }
+  .sitemap-header { text-align: center; }
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .sitemap-col {}
+  .sitemap-col-title {
+    font-family: var(--ff-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--clr-border);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .sitemap-col-title span { font-size: 1rem; }
+  .sitemap-col ul { display: flex; flex-direction: column; gap: 0.4rem; }
+  .sitemap-col ul li a {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.2s;
+    padding: 0.1rem 0;
+  }
+  .sitemap-col ul li a::before {
+    content: '›';
+    color: var(--clr-gold);
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .sitemap-col ul li a:hover { color: var(--clr-gold-lt); }
+  .sitemap-divider {
+    border: none;
+    border-top: 1px solid var(--clr-border);
+    margin: 2.5rem 0;
+  }
+  .sitemap-breadcrumb {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem;
+    font-family: var(--ff-ui);
+    font-size: 0.78rem;
+    color: var(--clr-text-dim);
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1.25rem;
+  }
+  .sitemap-breadcrumb a { color: var(--clr-gold); }
+  .sitemap-breadcrumb .sep { color: var(--clr-text-dim); }
+
+  /* =============================================
+     FAQS SECTION
+  ============================================= */
+  #faqs {
+    padding: 8rem 0;
+    background: var(--clr-bg);
+  }
+  .faqs-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .faqs-sidebar {}
+  .faqs-sidebar-note {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-top: 2rem;
+  }
+  .faqs-sidebar-note h4 {
+    font-family: var(--ff-ui);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 0.75rem;
+  }
+  .faqs-sidebar-note p {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--clr-border);
+    overflow: hidden;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--clr-border); }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 1.4rem 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    color: var(--clr-text);
+  }
+  .faq-q:hover { color: var(--clr-gold-lt); }
+  .faq-q.open { color: var(--clr-gold-lt); }
+  .faq-q-text {
+    font-family: var(--ff-heading);
+    font-size: 1.05rem;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .faq-icon {
+    width: 26px; height: 26px; flex-shrink: 0;
+    border: 1px solid var(--clr-border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    color: var(--clr-gold);
+    transition: transform 0.3s, background 0.3s;
+  }
+  .faq-q.open .faq-icon {
+    transform: rotate(45deg);
+    background: var(--clr-gold);
+    color: var(--clr-bg);
+    border-color: var(--clr-gold);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.25,0.46,0.45,0.94), padding 0.3s;
+    padding: 0;
+  }
+  .faq-answer.open {
+    max-height: 600px;
+    padding-bottom: 1.5rem;
+  }
+  .faq-answer p {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    line-height: 1.8;
+  }
+  .faq-answer ul {
+    margin: 0.75rem 0 0 1rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .faq-answer ul li {
+    list-style: none;
+    font-size: 0.92rem;
+    color: var(--clr-text-muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .faq-answer ul li::before {
+    content: '◆';
+    position: absolute; left: -0.25rem;
+    color: var(--clr-gold);
+    font-size: 0.45rem;
+    top: 0.55rem;
+  }
+
+  /* =============================================
+     CONTACT SECTION
+  ============================================= */
+  #contact {
+    padding: 8rem 0;
+    background: var(--clr-bg-2);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-info {}
+  .contact-info-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--clr-border);
+  }
+  .contact-info-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .contact-info-content {}
+  .contact-info-label {
+    font-family: var(--ff-ui);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 0.25rem;
+  }
+  .contact-info-value {
+    font-size: 0.95rem;
+    color: var(--clr-text);
+    line-height: 1.6;
+  }
+  .map-placeholder {
+    margin-top: 2rem;
+    height: 200px;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+    color: var(--clr-text-dim);
+    position: relative;
+    overflow: hidden;
+  }
+  .map-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(201,147,58,0.04) 30px, rgba(201,147,58,0.04) 31px),
+      repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(201,147,58,0.04) 30px, rgba(201,147,58,0.04) 31px);
+  }
+  .map-placeholder-pin { font-size: 2rem; }
+  .map-placeholder-text {
+    font-family: var(--ff-ui);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  .contact-form {}
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label {
+    font-family: var(--ff-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-text-muted);
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85em 1em;
+    color: var(--clr-text);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--clr-gold);
+    box-shadow: 0 0 0 3px rgba(201,147,58,0.12);
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--clr-text-dim); }
+  .form-group textarea { min-height: 130px; }
+  .form-success {
+    display: none;
+    background: rgba(201,147,58,0.1);
+    border: 1px solid rgba(201,147,58,0.3);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    color: var(--clr-gold-lt);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .form-success.visible { display: block; }
+
+  /* =============================================
+     FOOTER
+  ============================================= */
+  footer {
+    background: var(--clr-brown-dk);
+    border-top: 1px solid var(--clr-border);
+    padding: 4rem 0 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--clr-border);
+    margin-bottom: 2rem;
+  }
+  .footer-brand {}
+  .footer-brand-logo {
+    display: flex; align-items: center; gap: 0.7rem;
+    margin-bottom: 1.25rem;
+  }
+  .footer-brand-logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--clr-bg);
+  }
+  .footer-brand-logo-text { font-family: var(--ff-display); font-size: 1.1rem; color: var(--clr-ivory); }
+  .footer-brand p {
+    font-size: 0.88rem;
+    color: var(--clr-text-dim);
+    line-height: 1.8;
+    max-width: 280px;
+    margin-bottom: 1.5rem;
+  }
+  .social-links { display: flex; gap: 0.5rem; }
+  .social-link {
+    width: 36px; height: 36px;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .social-link:hover {
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    color: var(--clr-bg);
+    border-color: transparent;
+    transform: translateY(-2px);
+  }
+  .footer-col {}
+  .footer-col h4 {
+    font-family: var(--ff-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 1.25rem;
+  }
+  .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col ul li a {
+    font-size: 0.88rem;
+    color: var(--clr-text-dim);
+    transition: color 0.2s;
+    display: flex; align-items: center; gap: 0.3rem;
+  }
+  .footer-col ul li a:hover { color: var(--clr-gold-lt); }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy {
+    font-size: 0.82rem;
+    color: var(--clr-text-dim);
+  }
+  .footer-copy strong { color: var(--clr-gold); }
+  .footer-legal {
+    display: flex; gap: 1.5rem;
+  }
+  .footer-legal a {
+    font-size: 0.78rem;
+    color: var(--clr-text-dim);
+    transition: color 0.2s;
+  }
+  .footer-legal a:hover { color: var(--clr-gold); }
+
+  /* =============================================
+     SECTION TRANSITIONS / FADE-IN
+  ============================================= */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* =============================================
+     BACK TO TOP
+  ============================================= */
+  #back-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+    border: none; border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    color: var(--clr-bg);
+    box-shadow: 0 4px 20px rgba(201,147,58,0.35);
+    transition: var(--transition);
+    opacity: 0; pointer-events: none;
+    z-index: 900;
+  }
+  #back-top.visible { opacity: 1; pointer-events: auto; }
+  #back-top:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,147,58,0.5); }
+
+  /* =============================================
+     RESPONSIVE
+  ============================================= */
+  @media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-visual { max-width: 480px; margin: 0 auto; }
+    .about-img-main { aspect-ratio: 4/3; }
+    .faqs-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(3,1fr); }
+  }
+  @media (max-width: 768px) {
+    :root { --nav-h: 60px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { flex-direction: row; }
+    .hero-stat { padding: 1rem 0.5rem; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 160px; }
+    .gallery-item:nth-child(5n+1) { grid-column: span 1; grid-row: span 1; }
+    .gallery-item:nth-child(7n+3) { grid-column: span 1; }
+    .sitemap-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .about-pillars { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 130px; }
+    .hero-stats { flex-direction: column; }
+    .sitemap-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="texture-overlay"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon">⚜</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">Venus Handicrafts</span>
+        <span class="nav-logo-sub">Est. 1972 · Global Exporter</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#sitemap">Site Map</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#products">Products</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#sitemap">Site Map</a>
+  <a href="#faqs">FAQs</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-since">✦ Certified Manufacturer &amp; Exporter Since 1972 ✦</div>
+    <h1 class="hero-title">
+      Where Ancient Craft
+      <span class="accent-word">Meets Global Markets</span>
+    </h1>
+    <p class="hero-desc">
+      Five decades of master craftsmanship in iron, brass, wood, glass, and aluminium — serving importers, wholesalers, and retailers across 40+ countries.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#products" class="btn btn-gold">Explore Collection</a>
+      <a href="#contact" class="btn btn-outline">Request Catalogue</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">50+</div>
+        <div class="hero-stat-lbl">Years of Heritage</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">40+</div>
+        <div class="hero-stat-lbl">Export Markets</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5000+</div>
+        <div class="hero-stat-lbl">Product Designs</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">ISO</div>
+        <div class="hero-stat-lbl">Certified Quality</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-up">
+        <div class="about-img-main"></div>
+        <div class="about-img-badge">
+          <span class="badge-num">50+</span>
+          <span class="badge-txt">Years of Excellence</span>
+        </div>
+        <div class="about-floater">
+          <div class="about-floater-icon">🌍</div>
+          <div class="about-floater-text">
+            <strong>Global Presence</strong>
+            <span>40+ countries served</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content fade-up">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">Crafting <em>Excellence</em><br>Since 1972</h2>
+        <div class="gold-line"></div>
+        <p style="color:var(--clr-text-muted);line-height:1.9;margin-bottom:1rem;">
+          Venus Handicrafts was founded in 1972 with a singular mission: to bring the timeless beauty of Indian artisanship to the global marketplace. From our origins as a modest workshop, we have grown into a certified manufacturing powerhouse, employing hundreds of master artisans whose skills have been passed down through generations.
+        </p>
+        <p style="color:var(--clr-text-muted);line-height:1.9;margin-bottom:2rem;">
+          Today, our products grace homes, hotels, galleries, and retail shelves across North America, Europe, Asia, and the Middle East. Every piece bears the hallmark of authentic craftsmanship — handcrafted, quality-inspected, and designed to endure.
+        </p>
+        <div class="about-pillars">
+          <div class="about-pillar">
+            <div class="about-pillar-icon">🏛️</div>
+            <div class="about-pillar-title">Heritage Craft</div>
+            <div class="about-pillar-text">Traditional techniques refined across five decades of mastery.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar-icon">🌐</div>
+            <div class="about-pillar-title">Global Export</div>
+            <div class="about-pillar-text">Direct B2B shipping to importers in 40+ countries worldwide.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar-icon">✅</div>
+            <div class="about-pillar-title">Certified Quality</div>
+            <div class="about-pillar-text">ISO-certified processes ensuring consistent premium quality.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar-icon">🎨</div>
+            <div class="about-pillar-title">Custom Designs</div>
+            <div class="about-pillar-text">OEM &amp; private-label manufacturing for global brands.</div>
+          </div>
+        </div>
+        <div class="cert-strip">
+          <span class="cert-badge"><span>🏅</span> ISO 9001:2015</span>
+          <span class="cert-badge"><span>📜</span> Export House</span>
+          <span class="cert-badge"><span>🌱</span> Eco Compliant</span>
+          <span class="cert-badge"><span>✦</span> FIEO Member</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRODUCTS ===================== -->
+<section id="products">
+  <div class="container">
+    <div class="products-header fade-up">
+      <div class="section-tag">Our Collections</div>
+      <h2 class="section-title">Artisan <em>Product</em> Categories</h2>
+      <p class="section-subtitle">From iron sculptures to festive gift collections — every category embodies generations of hand-skilled craftsmanship.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#1f1209,#2d1a08);">
+          <div class="thumb-emoji">⚙️</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 01</div>
+          <div class="product-name">Iron Handicrafts</div>
+          <p class="product-desc">Hand-forged iron sculptures, wall art, candle stands, and furniture accents — combining industrial strength with artisan beauty.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#0a1a1a,#0d2222);">
+          <div class="thumb-emoji">🫙</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 02</div>
+          <div class="product-name">Glass Handicrafts</div>
+          <p class="product-desc">Handblown vases, decorative bottles, mosaic panels, and stained glass pieces that capture light in mesmerizing ways.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#1a1508,#221c08);">
+          <div class="thumb-emoji">🔔</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 03</div>
+          <div class="product-name">Brass Handicrafts</div>
+          <p class="product-desc">Traditional brass diyas, figurines, temple décor, and showpieces crafted by artisans with generations of metallurgy expertise.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#140e06,#1c1208);">
+          <div class="thumb-emoji">🪵</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 04</div>
+          <div class="product-name">Wood Handicrafts</div>
+          <p class="product-desc">Hand-carved wooden trays, boxes, photo frames, and décor items using sustainably sourced mango, sheesham, and teak wood.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#0f1620,#121c28);">
+          <div class="thumb-emoji">🪞</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 05</div>
+          <div class="product-name">Aluminium Handicrafts</div>
+          <p class="product-desc">Lightweight yet elegant aluminium art objects, wall hangings, platters, and contemporary sculptural pieces with polished finishes.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#1a0f14,#221019);">
+          <div class="thumb-emoji">🪆</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 06</div>
+          <div class="product-name">Handicraft Decorative</div>
+          <p class="product-desc">Mixed-media decorative collectibles — painted, lacquered, and embellished statement pieces for retail and interior design markets.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#1a1210,#221814);">
+          <div class="thumb-emoji">🍽️</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 07</div>
+          <div class="product-name">Tablewares</div>
+          <p class="product-desc">Artisanal serving bowls, platters, cutlery sets, and decorative table accessories that elevate dining experiences worldwide.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#0e1518,#10181e);">
+          <div class="thumb-emoji">🏮</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 08</div>
+          <div class="product-name">Home Décor</div>
+          <p class="product-desc">Curated home décor collections spanning clocks, mirrors, cushion covers, vases, and accent furniture for contemporary homes.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#1a140a,#221a0c);">
+          <div class="thumb-emoji">🕯️</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 09</div>
+          <div class="product-name">Candle Accessories</div>
+          <p class="product-desc">Elegant candle holders, hurricane lamps, pillar stands, and tea-light ensembles crafted in iron, brass, and glass combinations.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+      <div class="product-card fade-up">
+        <div class="product-thumb" style="background:linear-gradient(160deg,#18100e,#201410);">
+          <div class="thumb-emoji">🎁</div>
+        </div>
+        <div class="product-body">
+          <div class="product-cat-label">Category 10</div>
+          <div class="product-name">Gift &amp; Festive Items</div>
+          <p class="product-desc">Seasonal and festive collections — Diwali sets, Christmas ornaments, wedding favours, and bespoke corporate gifting solutions.</p>
+          <a href="#contact" class="product-link">Enquire Now →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-up">
+      <div class="section-tag">Portfolio</div>
+      <h2 class="section-title">Our Craft <em>Gallery</em></h2>
+      <p class="section-subtitle">A glimpse into our world — where raw materials are transformed into timeless decorative art.</p>
+    </div>
+    <div class="gallery-filter fade-up">
+      <button class="gf-btn active" data-filter="all">All</button>
+      <button class="gf-btn" data-filter="iron">Iron</button>
+      <button class="gf-btn" data-filter="brass">Brass</button>
+      <button class="gf-btn" data-filter="wood">Wood</button>
+      <button class="gf-btn" data-filter="glass">Glass</button>
+      <button class="gf-btn" data-filter="decor">Décor</button>
+    </div>
+    <div class="gallery-grid fade-up">
+
+      <div class="gallery-item" data-cat="iron">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#1f1209 0%,#3d2010 50%,#1a0e07 100%);">
+          <span class="gallery-img-icon">⚙️</span>
+          <span class="gallery-img-lbl">Iron Wall Sculpture</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Iron Wall Sculpture</div>
+          <div class="gallery-overlay-cat">Iron Handicrafts</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="brass">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#1f1a06 0%,#3d3510 50%,#1a1605 100%);">
+          <span class="gallery-img-icon">🔔</span>
+          <span class="gallery-img-lbl">Brass Temple Bell</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Brass Temple Bell</div>
+          <div class="gallery-overlay-cat">Brass Handicrafts</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="wood">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#140e06 0%,#2c1a08 50%,#100a04 100%);">
+          <span class="gallery-img-icon">🪵</span>
+          <span class="gallery-img-lbl">Carved Wood Box</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Carved Wood Box</div>
+          <div class="gallery-overlay-cat">Wood Handicrafts</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="decor">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#120a18 0%,#261450 50%,#0e0810 100%);">
+          <span class="gallery-img-icon">🏮</span>
+          <span class="gallery-img-lbl">Moroccan Lantern</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Moroccan Lantern</div>
+          <div class="gallery-overlay-cat">Home Décor</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="glass">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#081a1a 0%,#0f3535 50%,#061212 100%);">
+          <span class="gallery-img-icon">🫙</span>
+          <span class="gallery-img-lbl">Handblown Vase</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Handblown Glass Vase</div>
+          <div class="gallery-overlay-cat">Glass Handicrafts</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="iron">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#180c08 0%,#3a1810 50%,#120806 100%);">
+          <span class="gallery-img-icon">🕯️</span>
+          <span class="gallery-img-lbl">Iron Candle Stand</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Iron Candle Stand</div>
+          <div class="gallery-overlay-cat">Candle Accessories</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="decor">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#1a1208 0%,#3a2c08 50%,#141008 100%);">
+          <span class="gallery-img-icon">🎁</span>
+          <span class="gallery-img-lbl">Festive Gift Set</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Diwali Gift Set</div>
+          <div class="gallery-overlay-cat">Gift &amp; Festive</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="brass">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#1a1606 0%,#3a3010 50%,#141206 100%);">
+          <span class="gallery-img-icon">🪆</span>
+          <span class="gallery-img-lbl">Brass Figurine</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Brass Figurine Set</div>
+          <div class="gallery-overlay-cat">Handicraft Decorative</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="wood">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#160e04 0%,#301c08 50%,#100a04 100%);">
+          <span class="gallery-img-icon">🍽️</span>
+          <span class="gallery-img-lbl">Wood Tray Set</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Hand-Carved Wood Tray</div>
+          <div class="gallery-overlay-cat">Tablewares</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="decor">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#0e0c16 0%,#1e1a30 50%,#0a0810 100%);">
+          <span class="gallery-img-icon">🪞</span>
+          <span class="gallery-img-lbl">Aluminium Mirror Frame</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Aluminium Mirror Frame</div>
+          <div class="gallery-overlay-cat">Aluminium Handicrafts</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="iron">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#160c08 0%,#2e1810 50%,#120808 100%);">
+          <span class="gallery-img-icon">⚜</span>
+          <span class="gallery-img-lbl">Iron Garden Décor</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Iron Garden Décor</div>
+          <div class="gallery-overlay-cat">Iron Handicrafts</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="glass">
+        <div class="gallery-img" style="background:linear-gradient(145deg,#0c1418 0%,#183040 50%,#081016 100%);">
+          <span class="gallery-img-icon">✨</span>
+          <span class="gallery-img-lbl">Glass Mosaic Panel</span>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-title">Glass Mosaic Panel</div>
+          <div class="gallery-overlay-cat">Glass Handicrafts</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SITEMAP ===================== -->
+<section id="sitemap">
+  <div class="container">
+    <div class="sitemap-header fade-up">
+      <div class="section-tag">Navigation</div>
+      <h2 class="section-title">Site <em>Map</em></h2>
+      <p class="section-subtitle" style="margin:0 auto 0;">Complete site hierarchy for easy navigation.</p>
+    </div>
+    <div class="sitemap-grid fade-up">
+      <div class="sitemap-col">
+        <div class="sitemap-col-title"><span>🏠</span> Main Pages</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#sitemap">Site Map</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <div class="sitemap-col-title"><span>📦</span> Product Categories</div>
+        <ul>
+          <li><a href="#products">Iron Handicrafts</a></li>
+          <li><a href="#products">Glass Handicrafts</a></li>
+          <li><a href="#products">Brass Handicrafts</a></li>
+          <li><a href="#products">Wood Handicrafts</a></li>
+          <li><a href="#products">Aluminium Handicrafts</a></li>
+          <li><a href="#products">Handicraft Decorative</a></li>
+          <li><a href="#products">Tablewares</a></li>
+          <li><a href="#products">Home Décor</a></li>
+          <li><a href="#products">Candle Accessories</a></li>
+          <li><a href="#products">Gift &amp; Festive Items</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <div class="sitemap-col-title"><span>ℹ️</span> Company Info</div>
+        <ul>
+          <li><a href="#about">Our History</a></li>
+          <li><a href="#about">Mission &amp; Vision</a></li>
+          <li><a href="#about">Certifications</a></li>
+          <li><a href="#about">Global Presence</a></li>
+          <li><a href="#gallery">Product Gallery</a></li>
+          <li><a href="#faqs">Export FAQs</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <div class="sitemap-col-title"><span>📋</span> Services &amp; Support</div>
+        <ul>
+          <li><a href="#contact">Request a Quote</a></li>
+          <li><a href="#contact">Download Catalogue</a></li>
+          <li><a href="#contact">Custom Orders (OEM)</a></li>
+          <li><a href="#contact">Wholesale Enquiry</a></li>
+          <li><a href="#faqs">Shipping Info</a></li>
+          <li><a href="#faqs">Payment Terms</a></li>
+          <li><a href="#faqs">Minimum Order Qty</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <div class="sitemap-col-title"><span>⚖️</span> Legal &amp; Policies</div>
+        <ul>
+          <li><a href="#contact">Privacy Policy</a></li>
+          <li><a href="#contact">Terms of Service</a></li>
+          <li><a href="#contact">Return Policy</a></li>
+          <li><a href="#contact">Export Compliance</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <div class="sitemap-col-title"><span>🌐</span> Connect</div>
+        <ul>
+          <li><a href="#contact">LinkedIn</a></li>
+          <li><a href="#contact">Facebook</a></li>
+          <li><a href="#contact">Instagram</a></li>
+          <li><a href="#contact">YouTube</a></li>
+          <li><a href="#contact">Trade Portals</a></li>
+          <li><a href="#contact">IndiaMART Listing</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="sitemap-divider">
+    <div class="sitemap-breadcrumb fade-up">
+      <a href="#home">Venus Handicrafts</a>
+      <span class="sep">›</span>
+      <span>Home</span>
+      <span class="sep">›</span>
+      <span style="color:var(--clr-text-muted);">Full Site Structure</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQS ===================== -->
+<section id="faqs">
+  <div class="container">
+    <div class="faqs-layout">
+      <div class="fade-up">
+        <div class="section-tag">Common Questions</div>
+        <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+        <div class="gold-line"></div>
+        <p style="color:var(--clr-text-muted);font-size:0.95rem;line-height:1.8;">
+          Everything importers and wholesale buyers need to know before placing an order with Venus Handicrafts.
+        </p>
+        <div class="faqs-sidebar-note">
+          <h4>Still have questions?</h4>
+          <p>Our export team is available Mon–Sat, 9 AM–6 PM IST. We respond to all enquiries within 24 hours.</p>
+          <a href="#contact" class="btn btn-outline" style="font-size:0.75rem;padding:0.6em 1.5em;">Contact Our Team</a>
+        </div>
+      </div>
+      <div class="faq-list fade-up">
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">What are the minimum order quantities (MOQ)?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our minimum order quantities vary by product category:</p>
+            <ul>
+              <li>Iron &amp; Aluminium Handicrafts: 50 pieces per design</li>
+              <li>Brass &amp; Copper Products: 25–50 pieces per design</li>
+              <li>Wood Handicrafts: 50 pieces per design</li>
+              <li>Glass Handicrafts: 100 pieces per design</li>
+              <li>Gift &amp; Festive Sets: 100 sets per design</li>
+              <li>For mixed containers, total order value should exceed USD 3,000</li>
+            </ul>
+            <p style="margin-top:0.75rem;">For first-time buyers, we offer sample orders (1–5 pieces) at retail prices plus courier charges, fully adjustable against bulk orders.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">What are your export shipping options and delivery times?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We ship worldwide using sea freight (FCL/LCL) and air freight depending on order size and urgency.</p>
+            <ul>
+              <li>Sea Freight (USA/Europe): 25–35 days after dispatch</li>
+              <li>Sea Freight (Middle East/SE Asia): 15–25 days</li>
+              <li>Air Freight: 5–10 working days globally</li>
+              <li>Express Courier (DHL/FedEx): 3–7 working days for samples</li>
+            </ul>
+            <p style="margin-top:0.75rem;">We work on both FOB Moradabad/Jodhpur and CIF terms. All necessary export documentation — Commercial Invoice, Packing List, Bill of Lading, Certificate of Origin, and fumigation certificates — is provided at no extra cost.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">What certifications and compliance standards does Venus Handicrafts hold?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Venus Handicrafts holds the following certifications and industry memberships:</p>
+            <ul>
+              <li>ISO 9001:2015 — Quality Management Systems</li>
+              <li>Registered Export House — Government of India</li>
+              <li>FIEO (Federation of Indian Export Organisations) Member</li>
+              <li>EPCH (Export Promotion Council for Handicrafts) Member</li>
+              <li>CE Marking compliance for EU-bound products</li>
+              <li>Prop 65 compliant finishes available for California importers</li>
+            </ul>
+            <p style="margin-top:0.75rem;">We can provide third-party lab test reports (SGS, Bureau Veritas) on request for specific product categories.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">Do you offer custom designs and private labelling (OEM)?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Custom design and private label manufacturing is a core part of our business. We offer:</p>
+            <ul>
+              <li>Design development from buyer-supplied sketches or references</li>
+              <li>3D rendering and sampling before bulk production</li>
+              <li>Custom colours, finishes, sizes, and packaging</li>
+              <li>Private label branding — swing tags, stickers, box printing</li>
+              <li>Exclusive design lock (not sold to other buyers)</li>
+            </ul>
+            <p style="margin-top:0.75rem;">Custom sample development typically takes 15–25 working days. A nominal tooling/sampling charge applies, which is 100% refundable against your first bulk order.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">What are typical production lead times for bulk orders?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Production lead times depend on order size, product complexity, and seasonal capacity. Typical timelines:</p>
+            <ul>
+              <li>Small orders (under 500 pieces): 20–30 working days</li>
+              <li>Medium orders (500–2000 pieces): 30–45 working days</li>
+              <li>Large orders (2000+ pieces): 45–60 working days</li>
+              <li>Festive season orders (Sep–Nov): Add 15–20 extra days</li>
+            </ul>
+            <p style="margin-top:0.75rem;">We recommend placing festive season orders (Christmas, Diwali, Eid) at least 90 days in advance. Rush production is available at a 15% surcharge for select product lines.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">What payment terms and methods do you accept?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We offer flexible payment terms to suit different buyer relationships:</p>
+            <ul>
+              <li>New buyers: 50% advance + 50% before shipment (T/T)</li>
+              <li>Regular buyers: 30% advance + 70% against BL copy</li>
+              <li>Established accounts: LC at sight (Letters of Credit)</li>
+              <li>PayPal / Credit Card accepted for sample orders (under USD 500)</li>
+            </ul>
+            <p style="margin-top:0.75rem;">All transactions are in USD, EUR, or GBP. Bank charges are borne by the buyer. We provide a formal Proforma Invoice before any payment is requested.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span class="faq-q-text">How do you ensure quality control before shipment?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our multi-stage quality inspection process ensures every shipment meets agreed specifications:</p>
+            <ul>
+              <li>Raw material inspection at procurement stage</li>
+              <li>In-process quality checks at each production stage</li>
+              <li>Pre-shipment inspection of 100% cartons by our QC team</li>
+              <li>Third-party inspection (SGS/Bureau Veritas) available on buyer's request</li>
+              <li>Photo documentation and video walkthrough of packed goods</li>
+            </ul>
+            <p style="margin-top:0.75rem;">We maintain less than 1.5% defect rate across all product lines. Any defective goods discovered after arrival are replaced or credited in subsequent orders.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Start Your <em>Wholesale</em> Enquiry</h2>
+      <p class="section-subtitle" style="margin:0 auto 3rem;">Whether you're a first-time buyer or an established importer, our team is ready to assist with product selections, pricing, and logistics.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="fade-up">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📍</div>
+          <div class="contact-info-content">
+            <div class="contact-info-label">Office Address</div>
+            <div class="contact-info-value">Venus Handicrafts, Export House No. 14,<br>Handicraft Nagar, Moradabad - 244001,<br>Uttar Pradesh, India</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📞</div>
+          <div class="contact-info-content">
+            <div class="contact-info-label">Phone / WhatsApp</div>
+            <div class="contact-info-value">+91 591 2400 000<br>+91 98765 43210 (WhatsApp)</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">✉️</div>
+          <div class="contact-info-content">
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">exports@venushandicrafts.com<br>sales@venushandicrafts.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🕐</div>
+          <div class="contact-info-content">
+            <div class="contact-info-label">Business Hours</div>
+            <div class="contact-info-value">Monday – Saturday: 9:00 AM – 6:00 PM IST<br>Sunday: Closed</div>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <div class="map-placeholder-pin">📍</div>
+          <div class="map-placeholder-text">Moradabad, Uttar Pradesh, India<br>Handicraft Capital of the World</div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-up">
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address *</label>
+              <input type="email" id="femail" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fcompany">Company / Organisation</label>
+              <input type="text" id="fcompany" name="company" placeholder="Your company name">
+            </div>
+            <div class="form-group">
+              <label for="fcountry">Country</label>
+              <input type="text" id="fcountry" name="country" placeholder="Your country">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fsubject">Subject *</label>
+            <select id="fsubject" name="subject" required>
+              <option value="" disabled selected>Select enquiry type</option>
+              <option>Wholesale / Bulk Order Enquiry</option>
+              <option>Custom / OEM Design Request</option>
+              <option>Sample Order Request</option>
+              <option>Catalogue Download Request</option>
+              <option>Export / Shipping Query</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message *</label>
+            <textarea id="fmessage" name="message" placeholder="Please describe your requirements — product categories, approximate quantities, destination country, and any specific customisations..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">Send Enquiry →</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          ✦ Thank you for your enquiry! Our export team will contact you within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <div class="footer-brand-logo-icon">⚜</div>
+          <span class="footer-brand-logo-text">Venus Handicrafts</span>
+        </div>
+        <p>Certified manufacturer and global exporter of premium decorative handicrafts since 1972. Serving importers, wholesalers, and retailers across 40+ countries worldwide.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Instagram">ig</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+          <a href="#" class="social-link" aria-label="Pinterest">P</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Iron Handicrafts</a></li>
+          <li><a href="#products">Brass Handicrafts</a></li>
+          <li><a href="#products">Wood Handicrafts</a></li>
+          <li><a href="#products">Glass Handicrafts</a></li>
+          <li><a href="#products">Home Décor</a></li>
+          <li><a href="#products">Gift Items</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:exports@venushandicrafts.com">✉ exports@venushandicrafts.com</a></li>
+          <li><a href="tel:+915912400000">📞 +91 591 2400 000</a></li>
+          <li><a href="#contact">📍 Moradabad, India</a></li>
+          <li><a href="#contact">Request Catalogue</a></li>
+          <li><a href="#contact">WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        © 2025 <strong>Venus Handicrafts</strong>. All rights reserved. Established 1972. Moradabad, India.
+      </div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Export Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+  /* ---- NAVBAR SCROLL EFFECT ---- */
+  const navbar = document.getElementById('navbar');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    // Back to top
+    const backTop = document.getElementById('back-top');
+    if (window.scrollY > 400) {
+      backTop.classList.add('visible');
+    } else {
+      backTop.classList.remove('visible');
+    }
+
+    // Active nav link
+    updateActiveNav();
+  });
+
+  /* ---- ACTIVE NAV ON SCROLL ---- */
+  function updateActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  /* ---- SMOOTH SCROLL ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        // Close mobile nav
+        document.getElementById('mobile-nav').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+      }
+    });
+  });
+
+  /* ---- HAMBURGER ---- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  /* ---- FAQ ACCORDION ---- */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = answer.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+
+      // Open clicked if was closed
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('open');
+      }
+    });
+  });
+
+  /* ---- GALLERY FILTER ---- */
+  document.querySelectorAll('.gf-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (filter === 'all' || item.dataset.cat === filter) {
+          item.style.opacity = '1';
+          item.style.transform = '';
+          item.style.pointerEvents = 'auto';
+        } else {
+          item.style.opacity = '0.2';
+          item.style.transform = 'scale(0.97)';
+          item.style.pointerEvents = 'none';
+        }
+      });
+    });
+  });
+
+  /* ---- SCROLL FADE-IN ---- */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ---- CONTACT FORM ---- */
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    form.style.display = 'none';
+    success.classList.add('visible');
+  }
+
+  /* ---- STAGGER PRODUCT CARDS ---- */
+  document.querySelectorAll('.product-card.fade-up').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 60}ms`;
+  });
+  document.querySelectorAll('.gallery-item').forEach((item, i) => {
+    item.style.transitionDelay = `${i * 40}ms`;
+  });
+</script>
+</body>
+</html>
